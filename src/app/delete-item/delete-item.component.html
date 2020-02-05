@@ -1,0 +1,12 @@
+<div class="body">
+  <h2>Delete Item</h2>
+  <div *ngIf="!message && name" class="form">
+    <span>Are you sure you want to delete item {{name}}?</span>
+    <br>
+  </div>
+  <div class="buttons" *ngIf="!message && name">
+    <button routerLink="/stock/{{id}}/view">Cancel</button>
+    <button (click)="deleteItem()" class="red">Delete</button>
+  </div>
+  <div *ngIf="message" class="message {{messageClass}}"><em>{{message}}</em></div>
+</div>

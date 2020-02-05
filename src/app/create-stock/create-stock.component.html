@@ -1,0 +1,21 @@
+<div class="body">
+  <h2>{{action}} item {{body.name}}</h2>
+  <div *ngIf="!message" class="form">
+    <label>Item:
+      <input [(ngModel)]="body.name" placeholder="Item Name" />
+    </label><br>
+    <label>Quantity:
+      <input [(ngModel)]="body.quantity" placeholder="Item Quantity" />
+    </label><br>
+    <label>Rate:
+      <input [(ngModel)]="body.unitPrice" placeholder="Unit Price" />
+    </label><br>
+    <div class="buttons">
+      <button (click)="submit()">Save</button>
+      <button *ngIf="action==='Update'" routerLink="/stock/{{body.id}}/view" class="red">
+        Cancel
+      </button>
+    </div>
+  </div>
+  <div *ngIf="message" class="message {{messageClass}}"><em>{{message}}</em></div>
+</div>

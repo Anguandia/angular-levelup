@@ -1,0 +1,15 @@
+<div class="body">
+  <h2>View Item</h2>
+  <div *ngIf="item!==undefined" class="form">
+    <h3>{{item.name | uppercase}} Details</h3>
+    <div><em>Quantity: </em><b>{{item.quantity}}</b></div>
+    <div><em>Price: </em><b>{{item.unitPrice}}</b></div>
+    <div><em>Update Date: </em><b>{{item.updatedAt | date}}</b></div>
+  </div>
+  <div *ngIf="item!==undefined" class="buttons">
+    <button routerLink="/stock/{{id}}/update">Edit</button>
+    <button routerLink="/stock/{{id}}/delete" class="red">
+      Delete
+    </button>
+  </div>
+</div>

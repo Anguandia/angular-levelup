@@ -1,0 +1,7 @@
+<div *ngFor="let entry of stock" class="card-container">
+    <div class="card" routerLink="/stock/{{entry.id}}/view">
+        <h3 class="">{{entry.name}}</h3>
+        <span class="">{{entry.quantity}} units ${{entry.unitPrice}} each</span><br>
+        <img src="" alt="{{entry.name}} image" class="right"/>
+    </div>
+</div>
