@@ -29,6 +29,6 @@ export class DeleteItemComponent implements OnInit {
         ? [`Item ${this.name} ${res.message}`, 'success']
         : ['An error occured, please try again', 'error'];
     });
-}
+  }
 
 }

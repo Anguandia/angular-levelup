@@ -20,7 +20,6 @@ export class StockComponent implements OnInit {
           `${key}: ${res.headers.get(key)}`);
         Object.assign(res, headers);
         this.stock = res.body.data;
-        console.log(res);
       });
   }
 

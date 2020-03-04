@@ -1,4 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+import { FormsModule } from '@angular/forms';
 
 import { UpdateItemComponent } from './update-item.component';
 
@@ -8,7 +11,12 @@ describe('UpdateItemComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ UpdateItemComponent ]
+      declarations: [UpdateItemComponent],
+      imports: [
+        FormsModule,
+        RouterTestingModule,
+        HttpClientTestingModule
+      ],
     })
     .compileComponents();
   }));
@@ -19,7 +27,7 @@ describe('UpdateItemComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create UpdateItemComponent', () => {
     expect(component).toBeTruthy();
   });
 });

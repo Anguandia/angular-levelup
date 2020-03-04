@@ -1,7 +1,8 @@
 <div class="header">
   <input type="search" name="search" class="search" placeholder="enter item name to search"/>
   <div class="spacer"></div>
-  <span>Welcome to Stock Monitor</span>
+  <span>{{title}}</span>
+  <button (click)="persist()">Sync</button>
 </div>
 
 <router-outlet></router-outlet>

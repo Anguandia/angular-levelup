@@ -31,14 +31,21 @@ export class ApiService {
     );
   }
 
-  public createItem(body: Stock): Observable<any> {
+  public createItem(body: Stock, base = baseUrl): Observable<any> {
     return this.httpClient.post<Stock>(
-      baseUrl,
+      base,
       body,
       this.httpOptions
     ).pipe(
       catchError(this.handleError())
     );
+  }
+
+  public persistOffLineData(offLineData: Stock[]) {
+    offLineData.forEach((item) => {
+      delete item.id;
+      this.createItem(item, 'https://localhost:90000/stock/')
+    });
   }
 
   public updateItem(body, id): Observable<any> {

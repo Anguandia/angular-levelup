@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'https://typescriptlevelup.herokuapp.com/stock/'
+  baseUrl: 'http://localhost:9000/stock/',
+  mock: false
 };
 
 /*

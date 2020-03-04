@@ -13,6 +13,7 @@
     text-align: left;
     background: aliceblue;
     border-radius: 15px;
+    box-shadow: 1px 1px 1px 1px skyblue, inset -2px -5px grey;
 }
 
 .form input {

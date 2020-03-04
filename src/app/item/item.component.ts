@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import {Stock} from '../interfaces'
+import { Stock } from '../interfaces';
 
 @Component({
   selector: 'app-item',
   templateUrl: './item.component.html',
-  styleUrls: ['./item.component.css']
+  styleUrls: ['./item.component.css'],
 })
 export class ItemComponent implements OnInit {
 

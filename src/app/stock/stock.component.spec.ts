@@ -1,4 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 
 import { StockComponent } from './stock.component';
 
@@ -8,6 +10,7 @@ describe('StockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule, RouterTestingModule],
       declarations: [ StockComponent ]
     })
     .compileComponents();
@@ -19,7 +22,7 @@ describe('StockComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create AllItemsComponent', () => {
     expect(component).toBeTruthy();
   });
 });
