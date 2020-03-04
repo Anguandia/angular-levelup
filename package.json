@@ -8,8 +8,8 @@
     "lint": "ng lint",
     "postinstall": "ng build --aot --prod --configuration=production",
     "start": "node server.js",
-    "start:dev": "ng serve --configuration=development --port=5400",
-    "start:mock": "ng serve --configuration=mock --port=5400",
+    "start:dev": "ng serve --configuration=development --port=5400 --open",
+    "start:mock": "ng serve --configuration=mock --port=5400 --open",
     "e2e": "ng e2e --configuration=mock"
   },
   "engines": {
