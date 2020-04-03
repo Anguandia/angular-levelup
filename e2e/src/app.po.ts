@@ -1,4 +1,4 @@
-import { browser, by, element } from 'protractor';
+import { browser, by, element, $$, $ } from 'protractor';
 
 export class AppPage {
   navigateTo(location=browser.baseUrl) {
@@ -6,10 +6,26 @@ export class AppPage {
   }
 
   getTitleText() {
-    return element(by.css('app-root .content span')).getText() as Promise<string>;
+    return $$('span').get(2).getText() as Promise<string>;
   }
 
-  getAll() {
-    return element(by.css('app-root .card-container .card h3')).getText() as Promise<string>;
+  getItemDetails() {
+    return $('h3').getText() as Promise<string>;
+  }
+
+  getListItem(index = 0) {
+    return $$('.card').get(index).click();
+  }
+
+  getResponse() {
+    return $('.message em').getText() as Promise<string>;
+  }
+
+  send() {
+    return $('.save').click();
+  }
+
+  clickOn(elt) {
+    return elt.click();
   }
 }

@@ -12,20 +12,21 @@
   }
 
   .header {
-    height: 60px;
+    height: 80px;
     margin: -8px;
     display: flex;
     align-items: center;
     background-color: #1976d2;
     color: white;
     font-weight: 600;
+    /* line-height: 420%; */
     padding-left: 2%;
   }
 
   .header input {
     border: solid 1px white;
     border-radius: 10px;
-    height: 60%;
+    height: 70%;
     width: 15%;
     text-indent: 10%;
     line-height: 2;
@@ -33,6 +34,7 @@
 
   .spacer {
     width: 2%;
+    margin: auto 15vw ;
   }
 
   .content {
@@ -86,3 +88,34 @@
   .card:hover {
       background-color: aliceblue;
   }
+
+  .notification {
+    margin: auto 2%;
+  }
+
+  .notification-badge {
+    position: relative;
+    right: 5px;
+    top: -20px;
+    color: white;
+    background-color: red;
+    margin: 0 -.8em;
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+
+@keyframes highlight {
+  0%{
+    background-color: yellow;
+  }
+  50%{
+    background-color: rgb(238, 238, 180);
+  }
+  100%{
+    background-color: aliceblue;
+  }
+}
+
+.error {
+  animation: highlight 2s 10;
+}

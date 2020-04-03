@@ -1,21 +1,21 @@
 <div class="body">
-  <h2>{{action}} item {{body.name}}</h2>
-  <div *ngIf="!message" class="form">
+  <h2>{{action}} item {{data.name}}</h2>
+  <form *ngIf="!message && !error" class="form" (keypress)="emitEvent($event)" (mouseleave)="stop()">
     <label>Item:
-      <input [(ngModel)]="body.name" placeholder="Item Name" />
+      <input [(ngModel)]="data.name" placeholder="Item Name" name="name" />
     </label><br>
     <label>Quantity:
-      <input [(ngModel)]="body.quantity" placeholder="Item Quantity" />
+      <input [(ngModel)]="data.quantity" placeholder="Item Quantity" name="quantity" />
     </label><br>
     <label>Rate:
-      <input [(ngModel)]="body.unitPrice" placeholder="Unit Price" />
+      <input [(ngModel)]="data.unitPrice" placeholder="Unit Price" name="unitPrice" />
     </label><br>
     <div class="buttons">
-      <button (click)="submit()">Save</button>
-      <button *ngIf="action==='Update'" routerLink="/stock/{{body.id}}/view" class="red">
+      <button (click)="submit(); stop()" class="save">Save</button>
+      <button *ngIf="action==='Update'" routerLink="/stock/{{data.id}}/view" class="red">
         Cancel
       </button>
     </div>
-  </div>
-  <div *ngIf="message" class="message {{messageClass}}"><em>{{message}}</em></div>
+  </form>
+  <div *ngIf="message || error" class="message {{error ? 'error': 'success'}}"><em>{{message || error}}</em></div>
 </div>

@@ -59,7 +59,8 @@ button:hover {
 }
 
 button:active {
-  background-color: rgb(216, 216, 241);
+  /* background-color: rgb(216, 216, 241); */
+  box-shadow: -2px -2px navy;
 }
 
 .message {

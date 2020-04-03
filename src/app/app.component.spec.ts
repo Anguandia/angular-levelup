@@ -27,7 +27,7 @@ describe('AppComponent', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('span').textContent).toContain('Stock tracking');
+    expect(compiled.querySelector('h1').textContent).toContain('Stock tracking');
   });
 
   it('Should render searchbox', () => {

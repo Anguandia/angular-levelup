@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpResponse, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 import { Stock, ErrorResponse } from './interfaces';
@@ -21,8 +21,10 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getItem(id) {
-    return this.httpClient.get(baseUrl + id);
+  public getItem(id): Observable<HttpResponse<Response>>{
+    return this.httpClient.get<Response>(
+      baseUrl + id, { observe: 'response' }
+    );
   }
 
   public getStock(): Observable<HttpResponse<Response>> {
@@ -31,13 +33,13 @@ export class ApiService {
     );
   }
 
-  public createItem(body: Stock, base = baseUrl): Observable<any> {
-    return this.httpClient.post<Stock>(
+  public createItem(body: Stock, base = baseUrl): Observable<HttpResponse<Response>> {
+    return this.httpClient.post<any>(
       base,
       body,
       this.httpOptions
     ).pipe(
-      catchError(this.handleError())
+      this.throw() as any
     );
   }
 
@@ -54,7 +56,7 @@ export class ApiService {
       JSON.stringify(body),
       this.httpOptions
     ).pipe(
-      catchError(this.handleError())
+      this.throw() as any
     );
   }
 
@@ -67,10 +69,17 @@ export class ApiService {
 
   private handleError<T>(result?: ErrorResponse) {
     return (error: any): Observable<ErrorResponse> => {
-      console.error(error);
-      this.log(error.error.error);
+      console.error(error.error.message);
+      this.log(error.error.message);
       return of(result as ErrorResponse);
     };
+  }
+
+  private throw() {
+    return catchError((error) => {
+      this.log(Object.values(error.error)[0] as string);
+      return throwError(error);
+    });
   }
 
   private log(message: string) {

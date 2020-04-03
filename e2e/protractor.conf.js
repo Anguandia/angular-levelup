@@ -3,6 +3,9 @@
 // https://github.com/angular/protractor/blob/master/lib/config.ts
 
 const { SpecReporter } = require('jasmine-spec-reporter');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 /**
  * @type { import("protractor").Config }
@@ -11,9 +14,9 @@ exports.config = {
   allScriptsTimeout: 11000,
   // seleniumAddress: 'http://localhost:4444/wd/hub',
   // seleniumPort: 4444,
-  specs: [
-    './src/**/*.e2e-spec.ts'
-  ],
+  specs: process.env.SLOW ? [
+    'customConfig.js', './src/**/*.e2e-spec.ts'
+  ] : ['./src/**/*.e2e-spec.ts'],
   capabilities: {
     browserName: 'chrome'
   },
@@ -23,7 +26,7 @@ exports.config = {
   jasmineNodeOpts: {
     showColors: true,
     defaultTimeoutInterval: 30000,
-    print: function() {}
+    print: function () { },
   },
   onPrepare() {
     require('ts-node').register({

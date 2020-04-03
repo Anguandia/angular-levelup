@@ -12,4 +12,7 @@
       Delete
     </button>
   </div>
+  <!-- <div *ngIf="!item" class="buttons"> -->
+    <div *ngIf="!item" class="message {{messageClass}}"><em>{{message}}</em></div>
+  <!-- </div> -->
 </div>

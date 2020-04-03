@@ -2,7 +2,12 @@
   <input type="search" name="search" class="search" placeholder="enter item name to search"/>
   <div class="spacer"></div>
   <span>{{title}}</span>
-  <button (click)="persist()">Sync</button>
+  <div class="spacer"></div>
+  <button (click)="persist()" class="right">Sync</button>
+  <a class="notification" href="#!">
+    <i>notifications</i>
+    <span class="notification-badge">{{count}}</span>
+  </a>
 </div>
-
+<div *ngIf="notification" id="notification" ><i>{{notification}}</i></div>
 <router-outlet></router-outlet>
